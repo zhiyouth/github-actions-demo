@@ -4,7 +4,6 @@ import './index.less';
 import Config from './config.json';
 import { connect } from 'react-redux';
 const { list } = Config;
-const a = 111;
 class SidBar extends Component {
 
   render () {
@@ -12,7 +11,7 @@ class SidBar extends Component {
     return (
       <div className="side-bar">
         <div className="logo">
-                    Low Code
+          Low Code
         </div>
         <div className="side-bar__list">
           {
