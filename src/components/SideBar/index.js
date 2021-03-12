@@ -20,6 +20,7 @@ class SidBar extends Component {
                                 <SideBarItem
                                     key={`side-bar__item_${index}`}
                                     item={item}
+                                    index={index}
                                 />
                             );
                         })

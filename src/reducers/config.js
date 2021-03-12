@@ -1,8 +1,15 @@
-export const config = (state, action) => {
+import { SET_CURRENT_SITE } from '../actions';
+const defaultConfig = {
+    currentSite: [],
+}
+export const config = (state = defaultConfig, action) => {
     switch (action.type) {
-        case 'SET_CONFIG': {
-            return action.data || {};
+        case SET_CURRENT_SITE: {
+            return {
+                ...state,
+                ...action.data,
+            };
         }
-        default: return action.data || {};
+        default: return state;
     }
 }
