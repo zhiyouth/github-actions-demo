@@ -1,12 +1,12 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import './index.less';
 class Content extends Component {
-    render () {
-        return (
-            <div className="content">
+  render () {
+    return (
+      <div className="content">
                 Content
-            </div>
-        );
-    }
+      </div>
+    );
+  }
 }
 export default Content;

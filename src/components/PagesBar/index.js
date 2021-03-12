@@ -1,12 +1,12 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import './index.less';
 class PagesBar extends Component {
-    render () {
-        return (
-            <div className="pages-bar">
+  render () {
+    return (
+      <div className="pages-bar">
                 PagesBar
-            </div>
-        );
-    }
+      </div>
+    );
+  }
 }
 export default PagesBar;

@@ -1,41 +1,42 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import SideBarItem from './item';
 import './index.less';
 import Config from './config.json';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 const { list } = Config;
+const a = 111;
 class SidBar extends Component {
 
-    render () {
-        console.log(this.props, 'sideBar');
-        return (
-            <div className="side-bar">
-                <div className="logo">
+  render () {
+    console.log(this.props, 'sideBar');
+    return (
+      <div className="side-bar">
+        <div className="logo">
                     Low Code
-                </div>
-                <div className="side-bar__list">
-                    {
-                        list.map((item, index) => {
-                            return (
-                                <SideBarItem
-                                    key={`side-bar__item_${index}`}
-                                    item={item}
-                                    index={index}
-                                />
-                            );
-                        })
-                    }
-                </div>
-            </div>
-        );
-    }
+        </div>
+        <div className="side-bar__list">
+          {
+            list.map((item, index) => {
+              return (
+                <SideBarItem
+                  key={`side-bar__item_${index}`}
+                  item={item}
+                  index={index}
+                />
+              );
+            })
+          }
+        </div>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = (state) => {
-    const {config} = state;
-    return {
-        config,
-    }
-}
+  const {config} = state;
+  return {
+    config,
+  };
+};
 
 export default connect(mapStateToProps, null)(SidBar);

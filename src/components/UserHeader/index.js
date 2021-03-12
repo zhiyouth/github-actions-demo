@@ -1,12 +1,12 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import './index.less';
 class UserHeader extends Component {
-    render () {
-        return (
-            <div className="user-header">
+  render () {
+    return (
+      <div className="user-header">
                 UserHeader
-            </div>
-        );
-    }
+      </div>
+    );
+  }
 }
 export default UserHeader;
