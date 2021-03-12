@@ -93,7 +93,7 @@
       "src/**/*.{js,jsx,ts,tsx}",
       "!src/**/*.d.ts"
     ],
-    "setupFiles": [
+    "setupFiles":[
       "react-app-polyfill/jsdom"
     ],
     "setupFilesAfterEnv": [],
