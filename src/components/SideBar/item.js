@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './item.less';
 import { fetchConfig, SET_CURRENT_SITE } from '../../actions';
+import ItemChild from './itemChild';
 class SidBarItem extends Component {
   isActive = () => {
     const { config, index }  = this.props;
@@ -20,11 +21,30 @@ class SidBarItem extends Component {
   render () {
     const { item } = this.props;
     return (
-      <div className={`side-bar__item ${this.isActive() ? 'active' : ''}`} 
-        onClick={this.handleClick}
-      >
-        {item.name}
-      </div>
+      <React.Fragment>
+        <div className={`side-bar__item ${this.isActive() ? 'active' : ''}`} 
+          onClick={this.handleClick}
+        >
+          {item.name}
+        </div>
+        {
+          this.isActive() && (
+            <div className="side-bar__item__children">
+              {
+                item.children.map((childrenItem, childrenIndex) => {
+                  return (
+                    <ItemChild
+                      key={`side-bar__item__children__item_${childrenIndex}`}
+                      item={childrenItem}
+                      index={childrenIndex}
+                    />
+                  );
+                })
+              }
+            </div>
+          )
+        }
+      </React.Fragment>
     );
   }
 }
