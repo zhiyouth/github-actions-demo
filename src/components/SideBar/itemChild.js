@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchConfig, SET_CURRENT_SITE } from '../../actions';
-import item from './item';
 import './itemChild.less';
 
 class ItemChild extends Component {

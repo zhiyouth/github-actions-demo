@@ -1,6 +1,7 @@
 import { SET_CURRENT_SITE } from '../actions';
 const defaultConfig = {
   currentSite: [],
+  pageHeaders: [],
 };
 export const config = (state = defaultConfig, action) => {
   switch (action.type) {
