@@ -1,4 +1,4 @@
-import { SET_CURRENT_SITE, DELETE_HEADERS_BY_INDEX } from '../actions';
+import { SET_CURRENT_SITE, DELETE_HEADERS_BY_INDEX, CHANGE_HEADERS_BY_INDEX } from '../actions';
 const defaultConfig = {
   currentSite: [],
   pageHeaders: [
@@ -26,13 +26,34 @@ export const config = (state = defaultConfig, action) => {
     };
   }
   case DELETE_HEADERS_BY_INDEX: {
-    const { pageHeaders, currentSite } = state;
+    const { pageHeaders, currentSite, currentPageIndex } = state;
     const { index } = action.data;
+    let newCurrentPageIndex = currentPageIndex;
+    if (pageHeaders[index].active === true) {
+      newCurrentPageIndex = -1;
+    }
     const newPageHeader = JSON.parse(JSON.stringify(pageHeaders));
     newPageHeader.splice(index, 1);
     return {
       currentSite,
       pageHeaders: newPageHeader,
+      currentPageIndex: newCurrentPageIndex,
+    };
+  }
+  case CHANGE_HEADERS_BY_INDEX: {
+    const { pageHeaders, currentPageIndex } = state;
+    const { index } = action.data;
+    const newPageHeader = JSON.parse(JSON.stringify(pageHeaders));
+    if (currentPageIndex === -1) {
+      newPageHeader[index].active = true;
+    } else {
+      newPageHeader[currentPageIndex].active = false;
+      newPageHeader[index].active = true;
+    }
+    return {
+      ...state,
+      pageHeaders: newPageHeader,
+      currentPageIndex: index,
     };
   }
   default: return state;
