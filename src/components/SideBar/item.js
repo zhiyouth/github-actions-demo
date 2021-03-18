@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './item.less';
-import { fetchConfig, SET_CURRENT_SITE } from '../../actions';
+import { fetchConfig, SET_CURRENT_SITE, CREACTE_NEW_PAGE_BY_PAGE_NAME } from '../../actions';
 import ItemChild from './itemChild';
+import Config from '../../config.json';
+const { sideBarlist } = Config;
 class SidBarItem extends Component {
   isActive = () => {
     const { config, index }  = this.props;
@@ -11,6 +13,16 @@ class SidBarItem extends Component {
   }
   handleClick = () => {
     const { index, dispatch, } = this.props;
+    if (this.isActive()) {
+      const pageName = sideBarlist[index].pageName;
+      console.log(pageName);
+      dispatch(fetchConfig({
+        type: CREACTE_NEW_PAGE_BY_PAGE_NAME,
+        data: {
+          pageName,
+        }
+      }));
+    }
     dispatch(fetchConfig({
       type: SET_CURRENT_SITE,
       data: {

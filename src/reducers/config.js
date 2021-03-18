@@ -1,21 +1,17 @@
-import { SET_CURRENT_SITE, DELETE_HEADERS_BY_INDEX, CHANGE_HEADERS_BY_INDEX } from '../actions';
+import {
+  SET_CURRENT_SITE,
+  DELETE_HEADERS_BY_INDEX,
+  CHANGE_HEADERS_BY_INDEX,
+  CREACTE_NEW_PAGE_BY_PAGE_NAME,
+} from '../actions';
+import { createNewPageByPageName } from '../util';
 const defaultConfig = {
   currentSite: [],
   pageHeaders: [
-    {
-      tag: 'page',
-      pageName: 'home',
-      active: true,
-      name: '首页'
-    },
-    {
-      tag: 'page',
-      pageName: 'home',
-      active: false,
-      name: '在线开发'
-    },
+    createNewPageByPageName('HomePage')
   ],
   currentPageIndex: 0,
+  isHasHomePage: true,
 };
 export const config = (state = defaultConfig, action) => {
   switch (action.type) {
@@ -26,34 +22,58 @@ export const config = (state = defaultConfig, action) => {
     };
   }
   case DELETE_HEADERS_BY_INDEX: {
-    const { pageHeaders, currentSite, currentPageIndex } = state;
+    const { pageHeaders, currentSite, currentPageIndex, isHasHomePage } = state;
     const { index } = action.data;
     let newCurrentPageIndex = currentPageIndex;
+    let newIsHasHomePage = isHasHomePage;
     if (pageHeaders[index].active === true) {
       newCurrentPageIndex = -1;
     }
-    const newPageHeader = JSON.parse(JSON.stringify(pageHeaders));
-    newPageHeader.splice(index, 1);
+    const newPageHeaders = JSON.parse(JSON.stringify(pageHeaders));
+    if (newPageHeaders[index].pageName === 'HomePage') {
+      newIsHasHomePage = false;
+    }
+    newPageHeaders.splice(index, 1);
     return {
       currentSite,
-      pageHeaders: newPageHeader,
+      pageHeaders: newPageHeaders,
       currentPageIndex: newCurrentPageIndex,
+      isHasHomePage: newIsHasHomePage,
     };
   }
   case CHANGE_HEADERS_BY_INDEX: {
     const { pageHeaders, currentPageIndex } = state;
     const { index } = action.data;
-    const newPageHeader = JSON.parse(JSON.stringify(pageHeaders));
+    const newPageHeaders = JSON.parse(JSON.stringify(pageHeaders));
     if (currentPageIndex === -1) {
-      newPageHeader[index].active = true;
+      newPageHeaders[index].active = true;
     } else {
-      newPageHeader[currentPageIndex].active = false;
-      newPageHeader[index].active = true;
+      newPageHeaders[currentPageIndex].active = false;
+      newPageHeaders[index].active = true;
     }
     return {
       ...state,
-      pageHeaders: newPageHeader,
+      pageHeaders: newPageHeaders,
       currentPageIndex: index,
+    };
+  }
+  case CREACTE_NEW_PAGE_BY_PAGE_NAME: {
+    const { pageHeaders, currentPageIndex, isHasHomePage } = state;
+    const { pageName } = action.data;
+    let newIsHasHomePage = isHasHomePage;
+    const newPageHeaders = JSON.parse(JSON.stringify(pageHeaders));
+    if (currentPageIndex !== -1) {
+      newPageHeaders[currentPageIndex].active = false;
+    }
+    if (pageName === 'HomePage') {
+      newIsHasHomePage = true;
+    }
+    newPageHeaders.unshift(createNewPageByPageName(pageName));
+    newPageHeaders[0].active = true;
+    return {
+      ...state,
+      pageHeaders: newPageHeaders,
+      isHasHomePage: newIsHasHomePage,
     };
   }
   default: return state;
