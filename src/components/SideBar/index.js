@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SideBarItem from './item';
-import { CREACTE_NEW_PAGE_BY_PAGE_NAME } from '../../actions';
+import { CREACTE_NEW_PAGE_BY_PAGE_NAME, fetchConfig } from '../../actions';
 import './index.less';
 import Config from '../../config.json';
 import { connect } from 'react-redux';
@@ -10,12 +10,12 @@ class SidBar extends Component {
     const { dispatch, config } = this.props;
     const { isHasHomePage } = config;
     if (isHasHomePage) return;
-    dispatch({
+    dispatch(fetchConfig({
       type: CREACTE_NEW_PAGE_BY_PAGE_NAME,
       data: {
         pageName: 'HomePage',
       }
-    });
+    }));
   }
   render () {
     return (

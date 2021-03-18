@@ -15,7 +15,6 @@ class SidBarItem extends Component {
     const { index, dispatch, } = this.props;
     if (this.isActive()) {
       const pageName = sideBarlist[index].pageName;
-      console.log(pageName);
       dispatch(fetchConfig({
         type: CREACTE_NEW_PAGE_BY_PAGE_NAME,
         data: {

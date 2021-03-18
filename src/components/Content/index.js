@@ -8,6 +8,7 @@ import CodeOnLineEnvPage from '../../pages/code-online-env';
 import CodeOnLineDataPage from '../../pages/code-online-data';
 import ComponentsLibraryPage from '../../pages/components-library';
 import DefaultPage from '../../pages/default';
+import UserPage from '../../pages/user-page';
 const mapComponent = {
   HomePage,
   CodeOnLinePage,
@@ -15,6 +16,7 @@ const mapComponent = {
   CodeOnLineEnvPage,
   CodeOnLineDataPage,
   ComponentsLibraryPage,
+  UserPage,
 };
 class Content extends Component {
   renderCenterPage = () => {

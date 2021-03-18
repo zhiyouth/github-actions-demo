@@ -4,7 +4,7 @@ import {
   CHANGE_HEADERS_BY_INDEX,
   CREACTE_NEW_PAGE_BY_PAGE_NAME,
 } from '../actions';
-import { createNewPageByPageName } from '../util';
+import { createNewPageByPageName, createUserPageConfig } from '../util';
 const defaultConfig = {
   currentSite: [],
   pageHeaders: [
@@ -59,7 +59,7 @@ export const config = (state = defaultConfig, action) => {
   }
   case CREACTE_NEW_PAGE_BY_PAGE_NAME: {
     const { pageHeaders, currentPageIndex, isHasHomePage } = state;
-    const { pageName } = action.data;
+    const { pageName, userPageName } = action.data;
     let newIsHasHomePage = isHasHomePage;
     const newPageHeaders = JSON.parse(JSON.stringify(pageHeaders));
     if (currentPageIndex !== -1) {
@@ -68,7 +68,13 @@ export const config = (state = defaultConfig, action) => {
     if (pageName === 'HomePage') {
       newIsHasHomePage = true;
     }
-    newPageHeaders.unshift(createNewPageByPageName(pageName));
+    if (pageName === 'UserPage') {
+      // 用户自定义页面名字
+      console.log(createUserPageConfig(userPageName), 'uuu');
+      newPageHeaders.unshift(createUserPageConfig(userPageName));
+    } else {
+      newPageHeaders.unshift(createNewPageByPageName(pageName));
+    }
     newPageHeaders[0].active = true;
     return {
       ...state,

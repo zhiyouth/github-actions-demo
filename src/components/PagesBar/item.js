@@ -1,27 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { DELETE_HEADERS_BY_INDEX, CHANGE_HEADERS_BY_INDEX } from '../../actions';
+import { DELETE_HEADERS_BY_INDEX, CHANGE_HEADERS_BY_INDEX, fetchConfig } from '../../actions';
 import './item.less';
 class PageBarItem extends Component {
   handleClick = () => {
     const { dispatch, index } = this.props;
-    dispatch({
+    dispatch(fetchConfig({
       type: CHANGE_HEADERS_BY_INDEX,
       data: {
         index: index,
       }
-    });
+    }));
   }
   handleClose = (e) => {
     // 阻止冒泡
     e.stopPropagation();
     const { dispatch, index } = this.props;
-    dispatch({
+    dispatch(fetchConfig({
       type: DELETE_HEADERS_BY_INDEX,
       data: {
         index: index,
       }
-    });
+    }));
   }
   render () {
     const { item } = this.props;

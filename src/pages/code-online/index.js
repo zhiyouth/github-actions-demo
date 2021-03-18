@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './index.less';
+import { CREACTE_NEW_PAGE_BY_PAGE_NAME, fetchConfig } from '../../actions';
 class CodeOnLinePage extends Component {
   createNewPage = () => {
-
+    const { dispatch } = this.props;
+    dispatch(fetchConfig({
+      type: CREACTE_NEW_PAGE_BY_PAGE_NAME,
+      data: {
+        userPageName: '我的新建页面',
+        pageName: 'UserPage',
+      }
+    }));
   }
   render() {
     return (
