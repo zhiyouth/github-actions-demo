@@ -19,7 +19,6 @@ class ItemChild extends Component {
         currentSite: newCurrentSite,
       }
     }));
-    console.log(config, 'ccccc');
   }
   render() {
     const { item } = this.props;

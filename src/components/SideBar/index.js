@@ -7,7 +7,6 @@ const { list } = Config;
 class SidBar extends Component {
 
   render () {
-    console.log(this.props, 'sideBar');
     return (
       <div className="side-bar">
         <div className="logo">
