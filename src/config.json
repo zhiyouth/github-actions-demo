@@ -6,21 +6,21 @@
 					"pageName": "CodeOnLinePage",
 					"children": [
 							{
-									"componentName": "CodeOnLineComponents",
+									"pageName": "CodeOnLineComponents",
 									"name": "组件开发"
 							},
 							{
-									"componentName": "CodeOnLineEnv",
+									"pageName": "CodeOnLineEnv",
 									"name": "环境变量"
 							},
 							{
-									"componentName": "CodeOnLineData",
+									"pageName": "CodeOnLineData",
 									"name": "数据绑定试图"
 							}
 					]
 			},
 			{
-					"componentName": "ComponentsLibrary",
+					"pageName": "ComponentsLibrary",
 					"name": "组件仓库",
 					"children": [
 							{

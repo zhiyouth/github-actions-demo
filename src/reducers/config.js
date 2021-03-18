@@ -74,6 +74,7 @@ export const config = (state = defaultConfig, action) => {
       ...state,
       pageHeaders: newPageHeaders,
       isHasHomePage: newIsHasHomePage,
+      currentPageIndex: 0,
     };
   }
   default: return state;

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './index.less';
-class CodeOnLineComponents extends Component {
+class ComponentsLibraryPage extends Component {
   render() {
     return (
       <div>
-        CodeOnLineComponents
+        ComponentsLibraryPage
       </div>
     );
   }
 }
 
-export default CodeOnLineComponents;
+export default ComponentsLibraryPage;
