@@ -5,7 +5,80 @@ const defaultConfig = {
     {
       tag: 'page',
       pageName: 'home',
-      active: false
+      active: false,
+      name: '首页'
+    },
+    {
+      tag: 'page',
+      pageName: 'home',
+      active: false,
+      name: '在线开发'
+    },
+    {
+      tag: 'page',
+      pageName: 'home',
+      active: false,
+      name: '在线开发'
+    },
+    {
+      tag: 'page',
+      pageName: 'home',
+      active: false,
+      name: '在线开发'
+    },
+    {
+      tag: 'page',
+      pageName: 'home',
+      active: false,
+      name: '在线开发'
+    },
+    {
+      tag: 'page',
+      pageName: 'home',
+      active: false,
+      name: '在线开发'
+    },
+    {
+      tag: 'page',
+      pageName: 'home',
+      active: false,
+      name: '在线开发'
+    },
+    {
+      tag: 'page',
+      pageName: 'home',
+      active: false,
+      name: '在线开发'
+    },
+    {
+      tag: 'page',
+      pageName: 'home',
+      active: false,
+      name: '在线开发'
+    },
+    {
+      tag: 'page',
+      pageName: 'home',
+      active: false,
+      name: '在线开发'
+    },
+    {
+      tag: 'page',
+      pageName: 'home',
+      active: false,
+      name: '在线开发'
+    },
+    {
+      tag: 'page',
+      pageName: 'home',
+      active: false,
+      name: '在线开发'
+    },
+    {
+      tag: 'page',
+      pageName: 'home',
+      active: false,
+      name: '在线开发'
     }
   ],
 };

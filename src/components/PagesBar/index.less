@@ -1,4 +1,6 @@
 .pages-bar {
+  display: flex;
+  overflow-x: auto;
   color: red;
   position: fixed;
   left: 200px;
@@ -9,4 +11,9 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+
+  .pages-bar__wrapper {
+    width: 100%;
+    display: flex;
+  }
 }

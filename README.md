@@ -5,3 +5,7 @@ View the [workflow file](./.github/workflows/ci.yml) and the [published website]
 Read the details in [my blog](http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html) (in Chinese).
 
 # 触发 ci 2
+
+### 删除
+
+arr.splice(2,1);把索引为 2 的删除掉
