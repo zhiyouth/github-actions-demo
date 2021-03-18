@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import SideBarItem from './item';
 import './index.less';
-import Config from './config.json';
+import Config from '../../config.json';
 import { connect } from 'react-redux';
-const { list } = Config;
+const { sideBarlist } = Config;
 class SidBar extends Component {
 
   render () {
@@ -14,7 +14,7 @@ class SidBar extends Component {
         </div>
         <div className="side-bar__list">
           {
-            list.map((item, index) => {
+            sideBarlist.map((item, index) => {
               return (
                 <SideBarItem
                   key={`side-bar__item_${index}`}

@@ -1,29 +1,45 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './index.less';
+import Config from '../../config.json';
+import CodeOnLine from './content-components/code-online';
+import CodeOnLineComponents from './content-components/code-online-compoents';
+import CodeOnLineEnv from './content-components/code-online-env';
+import CodeOnLineData from './content-components/code-online-data';
+import ComponentsLibrary from './content-components/components-library';
+const mapComponent = {
+  CodeOnLine,
+  CodeOnLineComponents,
+  CodeOnLineEnv,
+  CodeOnLineData,
+  ComponentsLibrary,
+};
+const { sideBarlist } = Config;
 const mapCurrentSiteToCenterComponent = (currentSite) => {
   const currentSiteStr = currentSite.toString();
   switch (currentSiteStr) {
   case '0': {
-    return '在线开发';
+    const ComponentName = mapComponent[sideBarlist[0]['componentName']];
+    return <ComponentName />;
   }
   case '0,0': {
-    return '在线开发/组件开发';
+    const ComponentName = mapComponent[sideBarlist[0].children[0]['componentName']];
+    return <ComponentName />;
   }
   case '0,1': {
-    return '在线开发/环境变量';
+    const ComponentName = mapComponent[sideBarlist[0].children[1]['componentName']];
+    return <ComponentName />;
   }
   case '0,2': {
-    return '在线开发/数据绑定试图';
-  }
-  case '1': {
-    return '组件仓库';
-  }
-  case '1,0': {
-    return '开关组件';
+    const ComponentName = mapComponent[sideBarlist[0].children[2]['componentName']];
+    return <ComponentName />;
+  }  
+  case '': {
+    return '首页';
   }
   default: {
-    return '首页';
+    const ComponentName = mapComponent[sideBarlist[1]['componentName']];
+    return <ComponentName />;
   }
   }
   

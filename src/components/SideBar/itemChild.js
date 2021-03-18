@@ -10,15 +10,27 @@ class ItemChild extends Component {
     return currentSite[1] === index;
   }
   handleClick = () => {
-    const { index, dispatch, config } = this.props;
-    const newCurrentSite = config.currentSite;
-    newCurrentSite[1] = index;
-    dispatch(fetchConfig({
-      type: SET_CURRENT_SITE,
-      data: {
-        currentSite: newCurrentSite,
-      }
-    }));
+    const { index, dispatch, config, item } = this.props;
+    if(item.tag === 'component') {
+      // 组件仓库里的组件
+      const newCurrentSite = config.currentSite;
+      newCurrentSite[1] = index;
+      dispatch(fetchConfig({
+        type: SET_CURRENT_SITE,
+        data: {
+          currentSite: newCurrentSite,
+        }
+      }));
+    } else {
+      const newCurrentSite = config.currentSite;
+      newCurrentSite[1] = index;
+      dispatch(fetchConfig({
+        type: SET_CURRENT_SITE,
+        data: {
+          currentSite: newCurrentSite,
+        }
+      }));
+    }
   }
   render() {
     const { item } = this.props;

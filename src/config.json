@@ -1,24 +1,31 @@
 {
-    "list": [
+    "sideBarlist": [
         {
             "name": "在线开发",
+            "componentName": "CodeOnLine",
             "children": [
                 {
+                    "componentName": "CodeOnLineComponents",
                     "name": "组件开发"
                 },
                 {
+                    "componentName": "CodeOnLineEnv",
                     "name": "环境变量"
                 },
                 {
+                    "componentName": "CodeOnLineData",
                     "name": "数据绑定试图"
                 }
             ]
         },
         {
+            "componentName": "ComponentsLibrary",
             "name": "组件仓库",
             "children": [
                 {
-                    "name": "开关组件"
+                    "componentName": "ComponentsLibraryButton",
+                    "name": "开关组件",
+                    "tag": "component"
                 }
             ]
         }
