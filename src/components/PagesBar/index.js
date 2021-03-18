@@ -9,6 +9,7 @@ class PagesBar extends Component {
       <PageBarItem
         key={`page-bar__item-${index}`}
         item={item}
+        index={index}
       />
     ));
   }

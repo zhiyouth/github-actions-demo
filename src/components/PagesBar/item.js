@@ -1,16 +1,26 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { DELETE_HEADERS_BY_INDEX } from '../../actions';
 import './item.less';
 class PageBarItem extends Component {
+  handleClick = () => {
+    
+  }
   handleClose = () => {
-    console.log('点击了关闭');
+    const { dispatch, index } = this.props;
+    dispatch({
+      type: DELETE_HEADERS_BY_INDEX,
+      data: {
+        index: index,
+      }
+    });
   }
   render () {
     const { item } = this.props;
     return (
       <div
-        className="pages-bar__item" 
-        onMouseEnter={this.onMouseEnter}
-        onMouseLeave={this.onMouseLeave}
+        className={`${item.active ? 'active': ''} pages-bar__item`} 
+        onClick={this.handleClick}
       >
         {item.name}
         <div
@@ -21,4 +31,14 @@ class PageBarItem extends Component {
     );
   }
 }
-export default PageBarItem;
+const mapStateToProps = () => {
+  return {};
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    dispatch
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PageBarItem);
